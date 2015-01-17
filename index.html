@@ -30,15 +30,23 @@
       </header>
       <section>
 
-<h3><a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon 
-octicon-link"></span></a>Generate graph representations (with nodes and edges) of real-world cities:</h3>
+
+
+
+
+
+<h3><a id="intro" class="anchor" href="#intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generate graph representations (with nodes and edges) of real-world cities:</h3>
 
 <p>The goal of the project is to provide maps of real cities in a graph representation (with nodes and edges). Nodes are intersections between roads, points where roads change direction, or subway stations. We create an edge between two nodes whenever there is a road or railway that links them. If we zoom in Washington Square, NYC, this is what it looks like:</p>
 
 <p><center><img width="400" height="200" src="images/wsquarezoom.png" alt="WSZ" align="middle" Vspace="45"></center></p>
 
-<h3><a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon 
-octicon-link"></span></a>Check out the examples of NYC, Boston, and the amazing Madrid:</h3>
+
+
+
+
+
+<h3><a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check out the examples of NYC, Boston, and the amazing Madrid:</h3>
 
 <p>The resulting graphs are big! For instance, the graph representation of NYC counts 98542 nodes and 114981 edges. For simplicity, we consider railways and roads separately.</p>
 
@@ -78,9 +86,38 @@ octicon-link"></span></a>Check out the examples of NYC, Boston, and the amazing 
 </TABLE>
 
 
-<h3><a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon 
-octicon-link"></span></a>Tutorial</h3>
 
+
+
+
+<h3><a id="tutorial" class="anchor" href="#tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tutorial</h3>
+
+<h4><a name="download-data" class="anchor" href="#download-data"><span class="octicon octicon-link"></span></a>Step 1: Download geoJSON data</h4>
+
+<p>Download the geoJSON data of one of the cities available at <a href="https://mapzen.com/metro-extracts/">mapzen.com</a></p>
+
+<h4><a name="step-2-download-the-jar-file-from-here" class="anchor" href="#step-1-download-the-jar-file-from-here"><span class="octicon octicon-link"></span></a>Step 2: Download the graphFromGeoJson.jar file from <a href="downloads/graphFromGeoJson.jar" target="_blank">here</a></h4>
+
+<h4><a name="step-3-running-graphFromGeoJson.jar" class="anchor" href="#step-3-running-graphFromGeoJson.jar"><span class="octicon octicon-link"></span></a>Step 3: Generate the graph</h4>
+
+<p>Six arguments need to be specified:</p>
+
+<ol>
+<li><p><strong>path_to_map</strong>: path to the geojson file</p></li>
+<li><p><strong>road_class</strong>: <em>highway</em> or <em>railway</em></p></li>
+<li><p><strong>minX</strong>: minimum x coordinate of the rectangle delimiting the city</p></li>
+<li><p><strong>maxX</strong>: maximum x coordinate of the rectangle delimiting the city</p></li>
+<li><p><strong>minY</strong>: minimum y coordinate of the rectangle delimiting the city</p></li>
+<li><p><strong>maxY</strong>: maximum y coordinate of the rectangle delimiting the city</p></li>
+</ol>
+
+<p>From the terminal:</p>
+<pre><code>$ java -jar graphFromGeoJson.jar path_to_map road_class minX maxX minY maxY > output.gexf
+</code></pre>
+
+<h4>Example</h4>
+<pre><code>$ java -jar ParseJsonMaps.jar new-york_new-york-roads.geojson railway -74.0969467163086 -73.8339614868164 40.70016219564594 40.85147526676901 > nyc_railway.gefx
+</code></pre>
 
 
 <h3><a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon 
